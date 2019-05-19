@@ -1,0 +1,11 @@
+[package]
+name = "blackhole_ocl"
+version = "0.1.0"
+authors = ["Matthew Wright"]
+edition = "2018"
+
+[dependencies]
+sdl2 = "0.32.2"
+ocl = "0.19.2"
+image = "0.21.2"
+clap = "2.33.0"
