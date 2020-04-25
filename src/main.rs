@@ -263,8 +263,9 @@ fn main() -> Result<(), String> {
 
     let mut event_pump = sdl_context.event_pump().unwrap();
 
-    if window.surface(&event_pump)?.pixel_format_enum() != PixelFormatEnum::ARGB8888 {
-        return Err("Can only handle ARGB8888 pixel format right now.".to_string());
+    let pixel_format = window.surface(&event_pump)?.pixel_format_enum();
+    if pixel_format != PixelFormatEnum::ARGB8888 && pixel_format != PixelFormatEnum::RGB888 {
+        return Err(format!("Can only handle ARGB8888/RGB888 pixel format right now; got {:?}", pixel_format));
     }
 
     // TODO: the number of outcomes could be made configurable.
